@@ -8,4 +8,7 @@ urlpatterns = [
     path('catergorys/', views.CatergoryList.as_view(), name='catergory_list'),
     path('catergorys/<int:pk>', views.CatergoryDetail.as_view(),
          name='catergory_detail'),
+    # path('useritems/', views.UserItemList.as_view(), name='useritem_list')
+    path('useritems/<int:userid>',
+         views.UserItemList.as_view(), name='useritem_list')
 ]
