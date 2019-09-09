@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import dj_database_url
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,8 @@ SECRET_KEY = '+*h9$qz2grg@3(l@#2%7=hu-w4c51sqkzf8c9x)mz1cq155sl9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://git.heroku.com/herokusmartinv.git', '127.0.0.1']
+ALLOWED_HOSTS = ['https://git.heroku.com/herokusmartinv.git',
+                 '127.0.0.1', 'https://herokusmartinv.herokuapp.com/']
 
 
 # Application definition
