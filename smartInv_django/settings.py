@@ -26,7 +26,7 @@ SECRET_KEY = '+*h9$qz2grg@3(l@#2%7=hu-w4c51sqkzf8c9x)mz1cq155sl9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://herokusmartinv.herokuapp.com/']
+ALLOWED_HOSTS = ['https://git.heroku.com/herokusmartinv.git', '127.0.0.1']
 
 
 # Application definition
@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 prod_db = dj_database_url.config(conn_max_age=500)
