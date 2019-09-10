@@ -9,6 +9,18 @@ autopep8 = "*"
 [packages]
 djangorestframework = "*"
 django = "*"
+dj-database-url = "*"
+django-extensions = "*"
+django-filter = "*"
+djangorestframework-simplejwt = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+pycodestyle = "*"
+pyjwt = "*"
+pytz = "*"
+six = "*"
+sqlparse = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
