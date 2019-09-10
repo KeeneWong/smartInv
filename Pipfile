@@ -8,11 +8,7 @@ autopep8 = "*"
 
 [packages]
 djangorestframework = "*"
-django = "*"
-psycopg2-binary = "*"
-dj_database_url = "*"
-gunicorn = "*"
-django-heroku = "*"
+
 
 [requires]
 python_version = "3.7"
