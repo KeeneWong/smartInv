@@ -18,4 +18,4 @@ class ItemSerializer(serializers.ModelSerializer):
 class CatergorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Catergory
-        fields = ('title', 'image_url')
+        fields = ('id', 'title', 'image_url')
