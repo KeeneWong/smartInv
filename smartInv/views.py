@@ -6,6 +6,10 @@ from .models import Item, Catergory
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.authtoken.models import Token
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.conf import settings
 
 
 class ItemList(generics.ListCreateAPIView):
@@ -66,5 +70,13 @@ class UserViewSet2(generics.ListCreateAPIView):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    # for user in queryset:
+    #     Token.objects.get_or_create(user=user)
 
-# Create your views here.
+    @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+    def create_auth_token(sender, instance=None, created=False, **kwargs):
+        if created:
+            Token.objects.create(user=instance)
+
+
+# class CreateToken()
