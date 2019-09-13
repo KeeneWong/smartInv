@@ -1,3 +1,6 @@
+from django.conf import settings
+# from django.utils.translation import ugettext_lazy as _
+# from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
@@ -21,7 +24,8 @@ class Item(models.Model):
     prize = models.IntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True, null=False)
     alive = models.BooleanField(default=True, null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=False)
     catergory = models.ForeignKey(
         Catergory, on_delete=models.SET_NULL, related_name='items', null=True
     )

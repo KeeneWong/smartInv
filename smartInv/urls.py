@@ -1,6 +1,11 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('items/', views.ItemList.as_view(), name='item_list'),
@@ -10,5 +15,9 @@ urlpatterns = [
          name='catergory_detail'),
     # path('useritems/', views.UserItemList.as_view(), name='useritem_list')
     path('useritems/<int:userid>',
-         views.UserItemList.as_view(), name='useritem_list')
+         views.UserItemList.as_view(), name='useritem_list'),
+    path('users2/', views.UserViewSet2.as_view(), name='user_list'),
+
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

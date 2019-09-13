@@ -1,13 +1,10 @@
+from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import Item, Catergory
+from django.contrib.auth.models import User
 
 
 class ItemSerializer(serializers.ModelSerializer):
-    # catergory = serializers.HyperlinkedRelatedField(
-    #     view_name='catergory_detail',
-    #     many=True,
-    #     read_only=True
-    # )
 
     class Meta:
         model = Item
@@ -19,3 +16,15 @@ class CatergorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Catergory
         fields = ('id', 'title', 'image_url')
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'groups', 'password']
+
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Group
+        fields = ['url', 'name']
