@@ -14,7 +14,7 @@ urlpatterns = [
     path('catergorys/<int:pk>', views.CatergoryDetail.as_view(),
          name='catergory_detail'),
     # path('useritems/', views.UserItemList.as_view(), name='useritem_list')
-    path('useritems/<int:userid>',
+    path('useritems/<str:userid>',
          views.UserItemList.as_view(), name='useritem_list'),
     path('users2/', views.UserViewSet2.as_view(), name='user_list'),
 

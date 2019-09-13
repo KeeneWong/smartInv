@@ -25,7 +25,8 @@ class UserItemList(generics.ListAPIView):
 
     def get_queryset(self):
         userid = self.kwargs['userid']
-        queryset = Item.objects.filter(user=userid)
+        user = User.objects.filter(username=userid)
+        queryset = Item.objects.filter(user=user[0].id)
         return queryset
 
 

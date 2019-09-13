@@ -21,7 +21,7 @@ class CatergorySerializer(serializers.HyperlinkedModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups', 'password']
+        fields = ['id', 'url', 'username', 'email', 'groups', 'password']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
