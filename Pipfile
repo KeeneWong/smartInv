@@ -22,6 +22,8 @@ six = "*"
 sqlparse = "*"
 whitenoise = "*"
 django-cors-headers = "*"
+rest-auth = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.7"

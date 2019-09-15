@@ -10,6 +10,9 @@ from rest_framework.authtoken.models import Token
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 
 
 class ItemList(generics.ListCreateAPIView):
@@ -66,18 +69,27 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
-class UserViewSet2(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
-
+class UserCreateAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # for user in queryset:
-    #     Token.objects.get_or_create(user=user)
+    permission_classes = (AllowAny,)
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_auth_token(sender, instance=None, created=False, **kwargs):
         if created:
             Token.objects.create(user=instance)
+
+
+# class UserList(generics.ListAPIView):
+#     permission_classes = (IsAuthenticated,)
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+
+# class UserDetail(generics.RetrieveAPIView):
+
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
 
 
 # class CreateToken()
